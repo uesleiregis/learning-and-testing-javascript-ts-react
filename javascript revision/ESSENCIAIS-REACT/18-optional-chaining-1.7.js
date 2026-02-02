@@ -1,0 +1,19 @@
+// 🔴 PRIORIDADE ALTA
+// Ordem na lista de essenciais: 18
+// Exercício original: 01-fundamentos/exercicio-01-07.js
+
+// Exercício 1.7 - Optional Chaining
+// Crie um objeto `usuario` com a seguinte estrutura:
+// const usuario = {
+//   nome: "Ana",
+//   endereco: {
+//     rua: "Av. Paulista",
+//     numero: 1000
+//   }
+// };
+// Tente acessar:
+// - `usuario.endereco.rua` (existe)
+// - `usuario.endereco.complemento` (não existe)
+// - `usuario.contato.email` (contato não existe - causaria erro!)
+//
+// Use `?.` para acessar `usuario.contato?.email` e `usuario.endereco?.complemento` com segurança.
