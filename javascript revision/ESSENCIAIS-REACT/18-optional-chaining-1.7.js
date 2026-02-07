@@ -17,3 +17,24 @@
 // - `usuario.contato.email` (contato não existe - causaria erro!)
 //
 // Use `?.` para acessar `usuario.contato?.email` e `usuario.endereco?.complemento` com segurança.
+
+const usuario = {
+    nome: "Ana",
+    endereco: {
+        rua: "Av. Paulista",
+        numero: 1000
+    }
+};
+
+console.log(usuario.contato?.email)
+console.log(usuario.endereco?.complemento);
+console.log(usuario.endereco?.rua)
+
+
+/*
+Verifica se a propriedade existe antes de acessá-la.
+Se existir, acessa normalmente.
+Se não existir, retorna undefined sem retornar erro.
+
+obs: pode ser capturado por try - catch (sem o optional chaining )
+ */
