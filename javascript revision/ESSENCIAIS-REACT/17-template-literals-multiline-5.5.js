@@ -4,3 +4,10 @@
 
 // Exercício 5.5 - Multi-linha
 // Use template literals para criar strings multi-linha formatadas (como HTML ou JSON).
+
+const string = `
+Isso é um teste.
+O que vcs ${1 + 1} acham ?
+`
+
+console.log(string);

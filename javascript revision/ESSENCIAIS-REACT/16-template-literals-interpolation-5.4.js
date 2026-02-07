@@ -7,3 +7,16 @@
 // - Variáveis
 // - Expressões
 // - Chamadas de função
+
+const variavel = `VARIÁVEL`
+const string = `Essa string tem ${variavel}, a expressão: 2 + 2 = ${2+2} e ${f(variavel)}`
+const string2 = `${variavel == "VARIAVEL" ? "É isso mesmo": "ops"}`
+console.log(string2)
+
+function f(x){
+    if (x == "VARIÁVEL")
+        return "Chamada Função"
+    return ""
+}
+
+console.log(string)

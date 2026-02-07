@@ -7,3 +7,14 @@
 // - Calcular o quadrado de um número
 // - Verificar se um número é par
 // - Retornar um objeto com propriedades `nome` e `idade`
+
+const quadrado = value => value * value;
+console.log(quadrado(2));
+
+
+const ehPar = value => value%2 == 0
+console.log(ehPar(3));
+
+const nomeEIdade = (nome, idade) => ({nome, idade}) // Nota! Sem os parêntesis
+console.log(nomeEIdade("João", 22))                 // {} é lido comom bloco 
+                                                    // não como um objeto.

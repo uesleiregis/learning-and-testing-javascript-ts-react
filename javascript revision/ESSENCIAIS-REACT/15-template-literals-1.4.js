@@ -6,3 +6,17 @@
 // Crie uma função `apresentar(nome, idade, cidade)` que retorne a seguinte frase usando template literals:
 // "Olá, meu nome é [nome], tenho [idade] anos e moro em [cidade]."
 // Teste a função com valores como `apresentar("João", 25, "São Paulo")`.
+
+function apresentar(nome,idade,cidade){
+    return `Olá meu nome é ${nome}, tenho ${idade} anos e moro em ${cidade}`
+}
+// Seria o mesmo de chamar a função separadamente.
+console.log(apresentar("Maria", 22, "Natal"))
+
+/* 
+// Forma alternativa
+(function apresentar(nome,idade,cidade){
+    //console.log("Teste"+cidade);
+    return `Olá meu nome é ${nome}, tenho ${idade} anos e moro em ${cidade}`
+})("João", 23, "Porto")
+*/
