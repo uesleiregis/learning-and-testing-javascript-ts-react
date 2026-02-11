@@ -21,10 +21,9 @@
 const numeros = [10, 20, 30, 40, 50];
 const somaNum = numeros.reduce(
     (acc, value) => acc + value
-    , 0)
+    )
 
     console.log("Tarefa 1: ",somaNum);
-    
 // TAREFA 2: Calcular a média das notas
 const notas = [7.5, 8, 9.5, 6, 8.5];
 // Resultado esperado: ~7.9
@@ -52,7 +51,6 @@ const arraysAninhados = [
 ];
 // Resultado esperado: [1, 2, 3, 4, 5, 6, 7, 8, 9]
 // Escreva aqui:
-
 
 const arraysAchatados = arraysAninhados.reduce((acc, value) => {
     if(Array.isArray(value))
@@ -93,3 +91,10 @@ const vendas = [
 //   Periféricos: [...outros periféricos]
 // }
 // Escreva aqui:
+const vendasCategorizado = vendas.reduce((acc, el)=>{
+    acc[el.categoria] = acc[el.categoria] || []
+    acc[el.categoria].push(el)
+    return acc
+}, {})
+
+console.log(vendasCategorizado);
