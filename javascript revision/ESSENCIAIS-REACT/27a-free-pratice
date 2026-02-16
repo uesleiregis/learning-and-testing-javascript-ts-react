@@ -1,0 +1,54 @@
+
+function verificarCredenciaisUsuario() {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            resolve({ id: 123, nome: "João", email: "joao@email.com" });
+        }, 1000);
+    });
+}
+
+function validarPagamentoPromise(userId) {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            resolve({ status: "Aprovado", valor: 150.00 });
+        }, 1000);
+    });
+}
+
+function processarEnvioPromise(userId) {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            resolve({ rastreio: "BR123456789" });
+        }, 1000);
+    });
+}
+
+function enviarConfirmacaoPromise(email) {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            resolve(email);
+        }, 1000);
+    });
+}
+
+buscarUsuarioPromise()
+    .then(usuário => {
+        console.log("1. Usuário encontrado:", usuário.nome);
+        return validarPagamentoPromise(usuário.id);
+    })
+    .then(pagamento => {
+        console.log("2. Pagamento validado:", pagamento.status);
+        return processarEnvioPromise(123);
+    })
+    .then(envio => {
+        console.log("3. Envio processado:", envio.rastreio);
+        return enviarConfirmacaoPromise("joao@email.com");
+    })
+    .then(email => {
+        console.log("4. Confirmação enviada para:", email);
+    })
+    .catch(erro => {
+        console.log("❌ Erro no processo:", erro);
+    });
+
+console.log("⏳ Processando pedido...\n");
