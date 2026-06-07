@@ -17,11 +17,12 @@ const usuario = {
 };
 
 
-const {nome, email, idade} = usuario;
+/* const {nome, email, idade} = usuario;
 // Posso pegar apenas as variaveis que eu quero.
 
 console.log(`O nome é ${nome} e o email é ${email}`);
 
+ */
 
-
-
+const {nome, email} = usuario;
+console.log(`O nome é ${nome} e o email é ${email}`);

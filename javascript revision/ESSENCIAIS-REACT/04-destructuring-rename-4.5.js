@@ -39,3 +39,15 @@ const {nome, preco} = produto
 console.log(`O produto ainda é ${nome} e ainda custa ${preco}`)
 // NÃO ALTEROU O OBJETO ORIGINAL.
 // Poderia, se quisessse, desetruturar novamente, com um nome diferente.
+
+// REVISANDO
+// Desetruturar com um nome diferente.
+const {nome: nomeItem = "Geladeira", estoque: aindaTem = 12, avaliacao = 4} = produto;
+
+console.log(nomeItem, aindaTem, avaliacao);
+// ! Obs:
+/* 
+1 - o novo nome "nomeItem" é apenas uma cópia. Não altera o valor original.
+2 - os valores padrão (default) só serão atribuídos se o elemento...
+... referenciado não existir. É criada uma nova variável (...).
+*/

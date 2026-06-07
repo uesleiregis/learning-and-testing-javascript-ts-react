@@ -27,3 +27,9 @@ const [first, second, ...stash] = numbers
 console.log(first, second);
 console.log(stash);
 
+// ---- Pequena revião
+// Pegando todos menos os dois últmos.
+const {profissao:penultimo, ativo:ultimo, ...menosUltimos} = usuario;
+console.log(menosUltimos);
+console.log(penultimo, ultimo);
+

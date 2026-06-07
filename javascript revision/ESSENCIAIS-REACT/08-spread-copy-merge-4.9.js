@@ -49,3 +49,17 @@ console.log(mesclado);
 // SOBRESCREVER
 const novoProduto = {...produto, ...atualizacao}
 console.log(novoProduto);
+
+// --- Pequena REVISÃO
+
+// Copiando:
+const copiaUsuario2 = {...usuario};
+console.log("Copia Revisão\n", copiaUsuario2, "\n");
+
+// Mesclando
+const meshUserConfig = {...usuario, ...config}
+console.log("Mesh Revisao\n",meshUserConfig);
+
+// Atualização
+const atualizadoRevisao = {...usuario, ...{nome: "Mário", idade: 44}};
+console.log("Update Revisao\n", atualizadoRevisao);
