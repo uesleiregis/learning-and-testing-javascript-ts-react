@@ -8,7 +8,7 @@
 // - Verificar se um número é par
 // - Retornar um objeto com propriedades `nome` e `idade`
 
-const quadrado = value => value * value;
+/* const quadrado = value => value * value;
 console.log(quadrado(2));
 
 
@@ -17,4 +17,23 @@ console.log(ehPar(3));
 
 const nomeEIdade = (nome, idade) => ({nome, idade}) // Nota! Sem os parêntesis
 console.log(nomeEIdade("João", 22))                 // {} é lido comom bloco 
-                                                    // não como um objeto.
+// não como um objeto.
+// */
+
+
+// REVISANDO
+// Quadrado de um número
+const quadrado = e => e ** 2;
+console.log(quadrado(5));
+
+// Eh par
+const ehPar = e => e % 2 == 0 ? true : false;
+console.log(ehPar(32), ehPar(3));
+
+// Regornar objeto com propriedades `nome` e `idade`;
+const objNomeEIdade = () => ({nome: "Name", idade: 22});
+console.log(objNomeEIdade()); 
+
+// Resumo rápido: IMPORTANTE!!
+// () => { nome: "João" } -> bloco, sem return, resultado: undefined
+// () => ({ nome: "João" }) -> objeto literal, resultado: { nome: "João" }

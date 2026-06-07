@@ -22,3 +22,6 @@ const {nome, email, idade} = usuario;
 
 console.log(`O nome é ${nome} e o email é ${email}`);
 
+
+
+
