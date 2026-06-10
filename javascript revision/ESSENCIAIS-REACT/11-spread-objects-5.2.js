@@ -60,3 +60,6 @@ const _codigoDesconto = desconto.ativo ? {codigo: "desc10"} : {}
 // Só adiciona o código do desconto se a condição for atendida (desconto.ativo == true)
 // se não atender não sobrescreve, porque spread de um objeto vasio não sobrepoe nada.
 const _novoDesconto = {...desconto, ..._codigoDesconto}
+
+/* const __codigoDesconto = desconto.ativo ? {codigo: "desc10"} : {}
+const __novoDesconto = {...desconto, ...__codigoDesconto} */

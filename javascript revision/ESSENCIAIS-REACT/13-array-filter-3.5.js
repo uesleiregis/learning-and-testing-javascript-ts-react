@@ -42,6 +42,8 @@ const res = nums
     .map(g => g * 2)
 
 console.log("multiplas operacoes, encadeando métodos\n",res);
+// A saída neste console vai aparecer fastado um espaço depois
+// ... do \n, porque insere um espaço depois do pula linha.
 
 
 // Boas práticas:
@@ -57,3 +59,27 @@ const resultado = nums
 
 
 */
+
+
+
+// ----- REVISANDO
+// Exercício 3.5 - Filter
+// Dado um array de números, use `filter` para:
+// - Obter apenas números pares
+const paress = nums.filter(e => e % 2 == 0);
+// - Obter apenas números maiores que 10
+const maioress = nums.filter(e => e > 10);
+// - Obter apenas números positivos
+const positivoss = nums.filter (e => e > 0);
+// - Combinar múltiplas condições
+const oppss = nums
+    .filter(e => e < 30)
+    .filter(e => e % 2 == 0)
+    .filter(e => e > 0)
+    .map(e => e * 3);
+
+    console.log("REVISÃO");
+    console.log(paress);
+    console.log(maioress);
+    console.log(positivoss);
+    console.log(oppss);

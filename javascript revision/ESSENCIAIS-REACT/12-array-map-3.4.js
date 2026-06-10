@@ -21,7 +21,7 @@ const produtos = [
 // Acesse as propriedades do objeto dentro do callback usando a notação de ponto (produto.nome, produto.preco).
 
 
-// PARTE A
+/* // PARTE A
 const nomes = produtos.map(e => e.nome)
 console.log(nomes);
 
@@ -31,4 +31,18 @@ console.log(precosDesconto10);
 
 // PARTE C
 const arrElements = produtos.map(e => `<li>${e.nome} - R$ ${e.preco}</li>`)
-console.log(arrElements);
+console.log(arrElements); */
+
+// -- REVISANDO
+
+// Array com nomes
+const nomes = produtos.map(e => e.nome);
+console.log(nomes);
+
+// Array om os preços com desconto de 10%;
+const precos = produtos.map(e => e.preco * 0.9);
+console.log(precos);
+
+// Array de elementos JSX
+const elementos = produtos.map(e => `<li>${e.nome} - R$ ${e.preco}</li>`);
+console.log(elementos);
