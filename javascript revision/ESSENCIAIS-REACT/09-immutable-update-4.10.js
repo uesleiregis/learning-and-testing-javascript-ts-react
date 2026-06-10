@@ -55,3 +55,14 @@ O rest em objetos pega o restante dos objetos, não importa se vem antes ou depo
 Se vc pegou o do meio, ele captura as propriedade das extremidades e assim por diante.
  */
 
+
+// --- Breve revisão:
+// atualizando apenas "idade" e "nome" de usuario
+const revUserUpdated = {...usuario, nome: "João", email: "ui@ai.com"};
+// outra forma const revUserUpdated = {...usuario, ...{nome: "João", email: "ui@ai.com"}};
+console.log(revUserUpdated);
+
+// Removendo apenas "idade" e "numero" de usuarioAninhado.
+const {idade, endereco: {numero, ...enderecoSemNumero}, ...aninhadoSemIdade} = usuarioAninhado;
+const userRevFinal = {endereco: {...enderecoSemNumero}, ...aninhadoSemIdade};
+console.log(userRevFinal);

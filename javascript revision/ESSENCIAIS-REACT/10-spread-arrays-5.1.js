@@ -20,6 +20,9 @@ const frutas = ["maçã", "banana", "laranja"];
 // 3. Outro array de frutas para concatenação
 const maisFrutas = ["uva", "pera"];
 
+// 4. Array de flores
+const flores = ["rosas", "margaridas", "tulipas"];
+
 
 // CONCATENADO
 const concatenado = [...numeros, ...frutas, ...maisFrutas]
@@ -44,13 +47,13 @@ console.log("Remove primeiro\n",frutas, removeFirstFrut, frutas);
 
 
 //Adicionar Elementos ao Inicio UNSHIFT
-const addFirst = numeros.unshift(3) // retorna total de elementos
+const addFirst = numeros.unshift(3) // retorna total de elementos DEPOIS DA ADIÇÃO
 console.log(addFirst, numeros);
 
 console.log("Adicionar no Início do Array");
 console.log("Antes de Adicionar", frutas);
 const addFisrtFlores = flores.unshift("Tulipas")
-console.log("Depois", addFisrtFlores, frutas); 
+console.log("Depois", addFisrtFlores, flores); 
 
 //Adicionar Elementos ao Fim PUSH
 const addEnd = numeros.push(7) // retorna o total de lementos
