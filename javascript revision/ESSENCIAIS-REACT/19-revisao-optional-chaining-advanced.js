@@ -36,16 +36,12 @@ console.log("=== CENÁRIO 1: E-commerce ===");
 // 2. O código de rastreamento (não existe)
 // 3. O CEP do endereço (não existe)
 
-// Escreva aqui:
-//pedido.cliente.endereco?.cliente // errado
-console.log(pedido.cliente.endereco?.complemento)// CORRETO !!!
+// Escreva aqui: (limpo para revisão)
+pedido.cliente?.endereco?.coplemento
+pedido.cliente?.rastreamento?.codigo
+pedido.cliente?.rastreamento?.cep
 
-//pedido?.codigorastreio. // ERRADO! ❌ Incompleto
-console.log(pedido.rastreamento?.codigo)
-// ou
-pedido?.rastreamento
 
-pedido.cliente.endereco?.cep // Correto ✅
 
 
 // ========================================
@@ -66,15 +62,10 @@ console.log("\n=== CENÁRIO 2: Métodos ===");
 // 2. formulario.onSubmit() (não existe)
 // 3. formulario.onError() (não existe)
 
-// Escreva aqui:
-//formulario?.validar() ❕ // formulario ja existe, não precisa do ?
-formulario.validar() // 👈🏼
-
-//formulario?.onSubmit() //❌
-formulario.onSubmit?.() //👈🏼 Forma correta para chamar métodos que podem não existir
-
-//formulario?.onError() // ❌
-formulario.onError?.() // 👈🏼
+// Escreva aqui: (limpo para revisão)
+formulario.validar?.(); // Basta fazer formulario.validar() // Op. Chaining desnecessário.
+formulario.onSubmit?.();
+formulario.onError?.();
 
 // ========================================
 // 🎯 CENÁRIO 3: Arrays e Objetos Variáveis (listas do React)
@@ -92,13 +83,11 @@ console.log("\n=== CENÁRIO 3: Arrays ===");
 // 2. O nome do terceiro elemento (é null)
 // 3. O telefone do quinto elemento (não existe no array)
 
-// Escreva aqui:
-console.log("1. Telefone de Bruno:", usuarios[1]?.contato?.telefone); // undefined
-usuarios[1].contato?.telefone //endefined
-usuarios[2]?.nome  // null
-usuarios[4]?.contato?.telefone
-console.log("2. Nome do elemento null:", usuarios[2]?.nome); // undefined
-console.log("3. Telefone do 5º elemento:", usuarios[4]?.contato?.telefone); // undefined
+// Escreva aqui: (limpo para revisão)
+console.log(usuarios[1]?.contato?.telefone);
+console.log(usuarios[2]?.nome);
+console.log(usuarios[4]?.contato?.telefone);
+
 
 // 💡 EXPLICAÇÃO:
 // usuarios[1] existe, mas não tem a propriedade 'contato'
@@ -135,12 +124,10 @@ console.log("\n=== CENÁRIO 4: Resposta de API ===");
 // 2. A mensagem de erro (erro não existe)
 // 3. O primeiro post do usuário (posts não existe)
 
-// Escreva aqui:
-respostaAPI.dados.usuario.perfil?.biografia
-respostaAPI.erro?.mensagem
-respostaAPI.dados.posts?.[0] // ❕❕
-
-
+// Escreva aqui: (limpo para revisão)
+respostaAPI.dados?.usuario?.perfil?.biografia;
+respostaAPI?.erro;
+respostaAPI?.dados?.posts?.[0];
 
 // ========================================
 // 🎯 DESAFIO EXTRA: Combinando ?.  com ?? (Nullish Coalescing)
@@ -158,8 +145,7 @@ console.log("\n=== DESAFIO EXTRA ===");
 // 2. Nome do fabricante (se não existir, use "Fabricante desconhecido")
 // 3. País de origem (se não existir, use "Brasil")
 
-// Escreva aqui:
-const descricao = produto.descricao ?? "Sem descrição"
-const fabricante = produto.fabricante ?? "Fabricante desconhecido"
-const pais = produto.paisdeorigem ?? "Brasil"
-console.log("Descricao: ",descricao, "\nFabricante:",fabricante, "\nOrigem:", pais)
+// Escreva aqui: (limpo para revisão)
+produto?.descricao ?? "Sem descrição";
+produto?.fabricante ?? "Fabricante desconhecido";
+produto?.pais ?? "Brasil";

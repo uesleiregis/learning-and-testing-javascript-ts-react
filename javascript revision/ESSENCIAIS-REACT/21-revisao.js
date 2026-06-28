@@ -8,6 +8,12 @@
 // - Comparar com `||`
 // - Combinar com optional chaining
 
+
+// ?? -> se o valor da esquerda for null ou undefined retorna o valor da direita.
+// || -> se o valor da esquerda for falsy, retorna o valor da direita.
+// Valores falsy: 0, "", false, NaN, undefined
+
+
 // ========================================
 // 🎯 CENÁRIO 1: Configurações de Usuário (muito comum!)
 // ========================================
@@ -20,15 +26,30 @@ const usuario = {
 };
 
 console.log("=== CENÁRIO 1: Configurações ===");
-// ❌ ERRADO - Usando || 
-console.log("Idade (||):", usuario.idade || 18);        // 18 (PERDEU O 0!)
-console.log("Tema (||):", usuario.tema || "claro");     // "claro" (perde undefined)
-console.log("Notificações (||):", usuario.notificacoes || true);  // true (MUDA FALSE!)
+// Exercício: comparar `||` vs `??` (passo a passo)
+// Objetivo: entender quando `||` vai sobrescrever valores válidos (0, false, "")
+// e quando `??` preserva esses valores, tratando apenas `null`/`undefined`.
+//
+// Passos (faça você mesmo):
+// 1) Escreva (ou descomente) os `console.log` abaixo para testar `||` e observar o
+//    comportamento quando o campo tem valores "falsy" válidos.
+// 2) Escreva (ou descomente) os `console.log` correspondentes usando `??` e compare
+//    os resultados — veja o que foi preservado.
+// 3) Explique para si mesmo por que cada operador produziu o resultado observado.
+//
+// Sugestões de expressões para adicionar (copie e cole, depois execute o arquivo):
+console.log("Idade (||):", usuario.idade || 18); // 0 é falsy - saída 18
+console.log("Idade (??):", usuario.idade ?? 18); // 0 não é undefined nem null - saída 0;
+//
+console.log("Tema (||):", usuario.tema || "claro"); // undefined é falsy - saída claro
+console.log("Tema (??):", usuario.tema ?? "claro"); // saída claro.
+//
+console.log("Notificações (||):", usuario.notificacoes || true); // false é falsy - true
+console.log("Notificações (??):", usuario.notificacoes ?? true); // false -> false
+//
+// Dica: rode este arquivo com `node` e observe as diferenças — não revelei os
+// resultados aqui para que você possa praticar a execução e a análise.
 
-// ✅ CORRETO - Usando ??
-console.log("Idade (??):", usuario.idade ?? 18);        // 0 (preservou!)
-console.log("Tema (??):", usuario.tema ?? "claro");     // "claro" (só trata undefined)
-console.log("Notificações (??):", usuario.notificacoes ?? true); // false (preservou!)
 
 // 💡 Por que importa?
 // Se o usuário tem idade 0 ou desativou notificações, || vai sobrescrever!
@@ -55,18 +76,16 @@ const resposta = {
 };
 
 console.log("\n=== CENÁRIO 2: Resposta de API ===");
-// TAREFA 1: Acessar email com segurança e padrão
-
-console.log("Email:", resposta.dados.usuario?.email ?? "sem-email@app.com");
-
-// TAREFA 2: Acessar telefone (não existe) com padrão
-console.log("Telefone:", resposta.dados.usuario?.telefone ?? "(99) 99999-9999");
-
-// TAREFA 3: Acessar sobrenome (undefined) com padrão
-console.log("Sobrenome:", resposta.dados.usuario?.sobrenome ?? "Não informado");
-
-// TAREFA 4: Acessar mensagem de erro (não existe) com padrão
-console.log("Erro:", resposta?.mensagemErro ?? "Operação realizada com sucesso");
+// TAREFAS:
+// 1) Acessar `email` com segurança e padrão
+console.log(resposta.dados?.usuario?.email ?? "Esse não é um formato válido")
+// 2) Acessar `telefone` com padrão
+console.log(resposta.dados?.usuario?.telefone ?? "(99) 99999-9999")
+// 3) Acessar `sobrenome` com padrão
+console.log(resposta.dados?.usuario?.sobrenome ?? "Nome Inválido")
+// 4) Acessar `mensagemErro` com padrão
+console.log(resposta?.mensagemErro || "Mensagem aqui.")
+// Respostas removidas para você praticar.
 
 // 💡 Padrão: propriedade?.subePropriedade ?? "valor padrão"
 
@@ -83,25 +102,21 @@ const cliente = {
 };
 
 console.log("\n=== CENÁRIO 3: Cálculos Precisos ===");
-// ❌ ERRADO - Pode destruir cálculos
-const descontoErrado = cliente.desconto || 10;  // 10 (PERDEU O 0!)
-console.log("Desconto (||):", descontoErrado, "% - ERRADO!");
+// Exercício: Refaça os cálculos preservando valores válidos (0) e usando `??`.
+// Removi as respostas para permitir a prática.
+const precoOriginal = 100; // Você pode usar este valor no seu cálculo
+// Aplicando desconto caso não haja desconto atribuido. (seja undefined)
+const descontoCorreto = cliente.desconto ?? 10;
+// Aplicar cupom adicional casa não haja nenhum configurado.
+cliente.cupomAdicional = cliente.cupomAdicional ?? 5;
 
-// ✅ CORRETO - Preserva 0
-const descontoCorreto = cliente.desconto ?? 10;  // 0 (preservou!)
-console.log("Desconto (??):", descontoCorreto, "% - CORRETO!");
+// Calculo do desconto final
+const descontoFinal = precoOriginal * (descontoCorreto + cliente.cupomAdicional)/precoOriginal
 
-// Aplicando cupom adicional
-const cupomFinal = cliente.cupomAdicional ?? 5;  // 5 (usa padrão)
-console.log("Cupom Adicional:", cupomFinal, "%");
+// Calculo preço final
+const precoFinal = precoOriginal - descontoFinal
 
-// Cálculo final
-const precoOriginal = 100;
-const desconto = (precoOriginal * (descontoCorreto + cupomFinal)) / 100;
-console.log(`Preço final: R$ ${(precoOriginal - desconto).toFixed(2)}`);
-
-
-
+console.log(`Preço final: R$ ${precoFinal.toFixed(2)}`)
 
 // ========================================
 // 🎯 CENÁRIO 4: Encadeamento com ?? (Pipeline) ❤️❤️
@@ -115,12 +130,8 @@ const config = {
 
 console.log("\n=== CENÁRIO 4: Encadeamento ===");
 // Pegando valor de múltiplas fontes com prioridade
-const linguagem = 
-    config?.user?.preferencias?.linguagem ??  // Tenta preferência do usuário
-    localStorage?.getItem?.("lang") ??        // Depois tenta localStorage
-    "pt-BR";                                  // Por último, padrão
-
-console.log("Linguagem definida:", linguagem);
+// TODO: Defina `linguagem` tentando (1) preferência do usuário, (2) localStorage, (3) padrão "pt-BR".
+let linguagem; // resposta removida para prática
 
 // 💡 PADRÃO DE 3 NÍVEIS:
 // 1º - Preferência do usuário
@@ -141,22 +152,8 @@ const dados = {
 };
 
 console.log("\n=== CENÁRIO 5: Armadilhas Comuns ===");
-
-// ❌ ARMADILHA 1: Confundir "" com null
-console.log('String vazia com ||:', "" || "padrão");    // "padrão" (perde "")
-console.log('String vazia com ??:', "" ?? "padrão");    // "" (preserva!)
-
-// ❌ ARMADILHA 2: Esquecer que 0 é válido
-console.log('Quantidade com ||:', dados.quantidade || 10);  // 10 (ERRADO!)
-console.log('Quantidade com ??:', dados.quantidade ?? 10);  // 0 (CORRETO!)
-
-// ❌ ARMADILHA 3: Booleano false é válido
-console.log('Ativo com ||:', dados.ativo || true);         // true (PERDEU FALSE!)
-console.log('Ativo com ??:', dados.ativo ?? true);         // false (PRESERVOU!)
-
-// ❌ ARMADILHA 4: Array vazio [] não é null
-console.log('Tags com ||:', dados.tags || ["padrão"]);     // ["padrão"] (PERDE [])
-console.log('Tags com ??:', dados.tags ?? ["padrão"]);     // [] (PRESERVA!)
+// Exercício: reimplemente os exemplos para ver a diferença entre `||` e `??`.
+// Respostas removidas para prática.
 
 
 
@@ -180,19 +177,12 @@ console.log("\n=== DESAFIO: Validação de Formulário ===");
 
 // Escreva aqui:
 // 1. Nome (se vazio, usar "Usuário Anônimo")
-console.log(formulario.campos?.nome || "Usuário Anônimo");
-
-// 2. Email (se null, usar "nao-informado@app.com")
-console.log(formulario.campos?.email ?? "Não informado");
-
-// 3. Idade (se 0 ou undefined, usar 18)
-console.log(formulario.campos?.idade || 18);
-
-// 4. Termos (se false, usar true como padrão para aceitar)
-console.log(formulario.campos?.termos || true);
-
-// 5. País (se undefined, usar "Brasil")
-console.log(formulario?.pais ?? "Brasil");
+// 1) Nome: (resposta removida)
+// 2) Email: (resposta removida)
+// 3) Idade: (resposta removida)
+// 4) Termos: (resposta removida)
+// 5) País: (resposta removida)
+// Preencha os `console.log` ou crie asserts para validar suas respostas.
 
 // ========================================
 // 📚 RESUMO: Quando usar cada operador
