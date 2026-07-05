@@ -171,7 +171,7 @@ const buscarCEP = new Promise((ok, erro) => {
         } else {
             erro("CEP não encontrado");
         }
-    }, 1000);
+    }, 2000);
 });
 
 buscarCEP

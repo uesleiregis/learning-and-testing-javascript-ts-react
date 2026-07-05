@@ -63,3 +63,45 @@ reservarVoo
 .then(msg => console.log(`Tudo certo!${msg}`))
 .catch(error => console.log(`Ops! ${error}`))
 .finally(()=> console.log("Processo de reserva encerrado."))
+
+// ========================================
+// EXERCÍCIO EXTRA DE REVISÃO
+// ========================================
+// Objetivo: revisar Promise, then, catch e finally em uma história simples.
+//
+// Crie um fluxo chamado `processarPagamento` com estas regras:
+// 1. Simule uma compra que pode dar certo ou errado.
+// 2. Se o pagamento for aprovado, mostre: "Pagamento aprovado!"
+// 3. Se o pagamento for recusado, mostre: "Pagamento recusado."
+// 4. Use `.then()` para tratar o sucesso.
+// 5. Use `.catch()` para tratar o erro.
+// 6. Use `.finally()` para mostrar: "Fluxo de pagamento encerrado."
+//
+// Regras extras:
+// - Use `new Promise()`.
+// - Use uma variável booleana para alternar entre sucesso e falha.
+// - Não use `async/await`.
+//
+// Dica: pense em algo simples como cartão aprovado ou cartão negado.
+
+// Escreva sua solução abaixo:
+// TODO REVER ONDE ESTÁ O ERRO
+/* const processarPagamento = new Promise((sucess, reject) => {
+    setTimeout(()=> {
+        const status = false; // Mudar por false para testar o resultado diferente;
+
+        if(status)
+            sucess("Pagamento aprovado");
+        else
+            reject("Pagamento recusado");
+    }, 3000);
+    })
+
+processarPagamento
+    .then((res) => {
+        console.log(res); 
+    })
+    .catch(res => console.log(res))
+    .finally(
+        () => {console.log("Fluxo de pagamento encerrado.")}
+    ) */

@@ -116,6 +116,11 @@ const vendasPorCategoria = vendas.reduce(
 
 console.log(vendasPorCategoria);
 
+
+const vendasCategoria1 = vendas.reduce(
+    
+)
+
 // Resultado esperado: {
 //   Eletrônicos: [...produtos eletrônicos],
 //   Periféricos: [...outros periféricos]
