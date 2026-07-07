@@ -77,12 +77,19 @@ formatarProdutoPromise(10).then((resultado) => {
 // Reescreva daqui para baixo usando async/await
 // Dica: as funcoes precisam continuar retornando Promise.
 
-// function carregarProdutoAsync(id) {
-// }
+async function carregarProdutoAsync(id) {
+	return new Promise((resolve) => {
+		setTimeout(() => {
+			resolve({ id, nome: "Teclado", preco: 150 });
+		}, 250);
+	});
+ }
 
-// function formatarProdutoAsync(id) {
-// }
+async function formatarProdutoAsync(id) {
+	const produto = await carregarProdutoAsync(id);
+	return `Produto: ${produto.nome} - R$ ${produto.preco}`;
+}
 
-// formatarProdutoAsync(10).then((resultado) => {
-//   console.log("Depois:", resultado);
-// });
+formatarProdutoAsync(10).then((resultado) => {
+	console.log("Depois:", resultado);
+});
